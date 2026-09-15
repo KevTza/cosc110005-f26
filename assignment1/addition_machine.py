@@ -1,0 +1,5 @@
+print("I'm a simple addition program. Please input a number.")
+num = int(input())
+print("Please input your second number.")
+num2 = int(input())
+print("Your two numbers add up to", num + num2,". Thanks for using this service!")
