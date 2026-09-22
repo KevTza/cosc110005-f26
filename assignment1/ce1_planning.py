@@ -13,10 +13,10 @@ print("The sizes are: kid, small, medium, and large.")
 print("Please enter the number of cones sold for each size.")
 
 # 2.	Determine what data is needed, and how to get it (INPUT) 
-kid_cones = 60
-small_cones = 120
-medium_cones = 240
-large_cones = 360
+KID_CONES = 60
+SMALL_CONES = 120
+MEDIUM_CONES = 240
+LARGE_CONES = 360
 
 class NegativeNumberError(Exception):
     pass
@@ -38,10 +38,10 @@ while x:
         print("Please enter a whole number greater than or equal to 0.")
 
 # Multiply number of cones by each respective mL amount
-kid_total = get_kid_cones * kid_cones
-small_total = get_small_cones * small_cones
-medium_total = get_medium_cones * medium_cones
-large_total = get_large_cones * large_cones
+kid_total = get_kid_cones * KID_CONES
+small_total = get_small_cones * SMALL_CONES
+medium_total = get_medium_cones * MEDIUM_CONES
+large_total = get_large_cones * LARGE_CONES
 
 # Add all mL amounts together
 total_mL = kid_total + small_total + medium_total + large_total
