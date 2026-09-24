@@ -56,6 +56,7 @@ while x:
             reservoir_width = float(input("Enter the width of the reservoir in meters: "))
             if reservoir_length <= 0 or reservoir_width <= 0:
                 raise NegativeValueError
+            reservoir_size = reservoir_length * reservoir_width  # Calculate the size of the reservoir in square meters
         elif get == "2":                  
             reservoir_size = float(input("Enter the size of the reservoir in square meters: "))
             if reservoir_size <= 0:
@@ -66,6 +67,7 @@ while x:
     except NegativeValueError:
         print("Invalid input. Please enter a positive number.")
     
+reservoir_size_cm2 = reservoir_size * 10000  # Convert square meters to square centimeters
 
 # This is where the user inputs the size of the rubber duck.
 
@@ -75,18 +77,15 @@ while y:
         rubber_duck_size_width = float(input("Enter the width of a rubber duck in centimeters: "))
         if rubber_duck_size_length <= 0 or rubber_duck_size_width <= 0:
             raise NegativeValueError
+        rubber_duck_size_cm2 = rubber_duck_size_length * rubber_duck_size_width
         y = False
     except ValueError:
         print("Invalid input. Please enter a valid number.")
     except NegativeValueError:
         print("Invalid input. Please enter a positive number.")
 
-# This calculates the number of rubber ducks required to cover the reservoir.
-reservoir_size_cm2 = reservoir_size * 10000  # Convert square meters to square centimeters
-rubber_duck_size_cm2 = rubber_duck_size_length * rubber_duck_size_width
-number_of_ducks = reservoir_size_cm2 / rubber_duck_size_cm2
-
 # This is where we tell the user how many rubber ducks they would need to fill the reservoir.
+number_of_ducks = reservoir_size_cm2 / rubber_duck_size_cm2
 print(f"You would need approximately {number_of_ducks:.0f} rubber ducks to cover the reservoir.")
 
 while z:
