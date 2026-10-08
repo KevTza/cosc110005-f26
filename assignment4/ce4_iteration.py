@@ -39,24 +39,55 @@ Print final total and exit
 
 
 
-# Number of hot dogs sold
-traditional_dog_sold = "0"
-veggie_dog_sold = "0"
-curry_dog_sold = "0"
-total_dog_sold = traditional_dog_sold + veggie_dog_sold + curry_dog_sold
+# Hot dog variables
+traditional_sold = "0"
+veggie_sold = "0"
+curry_sold = "0"
+total_sold = "0"
 
-
-Input = (Number_of_Traditional_Dog_sold []) + (Number_of_Veggie_Dog_sold []) + (Number_of_Curry_Dog_sold[])
-
+# Intro
 print("Welcome to the Mystical Dog Machine")
 
-Choice = ""
-while Choice != "0":
-    print("Please select from the following options:\n0. Tally total\n1. Regular Hot Dog\n2. Veggie Hot Dog\n3. Curry Hot Dog")
-    if Choice == "1":
-        Number_of_Traditional_Dog_sold = int(input("Enter the number of Traditional Dogs sold: "))
-        traditional_dog_sold += Number_of_Traditional_Dog_sold
-        elif Choice == "2":
-        Number_of_Veggie_Dog_sold = int(input("Enter the number of Veggie Dogs sold:")
+# Menu loop start
+choice = ""
+class WrongChoice(Exception):
+    pass
+list1 = ["0", "1", "2", "3"]
 
-       
+while choice != 0:
+    try:
+        choice = (input("Please select from the following options  :\n0. Tally total\n1. Regular Hot Dog\n2. Veggie Hot Dog\n3. Curry Hot Dog\n"))
+        if choice not in list1:
+            raise WrongChoice
+    except WrongChoice:
+        print("Sorry. Please input a number provided.")
+
+    # Traditional choice
+    try:
+        if choice == "1":
+            new_traditional_sold = int(input("Enter the number of Traditional hot dogs sold: "))
+            traditional_sold = int(traditional_sold) + int(new_traditional_sold)
+
+    # Veggie choice
+        elif choice == "2":
+            new_veggie_sold = int(input("Enter the number of Veggie hot dogs sold: "))
+            veggie_sold = int(veggie_sold) + int(new_veggie_sold)
+
+    # Curry choice
+        elif choice == "3":
+            new_curry_sold = int(input("Enter the number of Curry hot dogs sold: "))
+            curry_sold = int(curry_sold) + int(new_curry_sold)
+
+    
+    # Tally choice
+        elif choice == "0":
+            total_sold = int(traditional_sold) + int(veggie_sold) + int(curry_sold)
+            traditional_percent = int(traditional_sold) / int(total_sold) * 100
+            veggie_percent = int(veggie_sold) / int(total_sold) * 100
+            curry_percent = int(curry_sold) / int(total_sold) * 100
+            print(f"Thanks for using the Mystical Dog Machine. Your totals are:\nTraditional hot dogs: {traditional_sold}\nVeggie hot dogs: {veggie_sold}\nCurry hot dogs: {curry_sold}")
+            print(f"Your dog breakdown is:\nTraditional hot dogs: {traditional_percent:.0f}%\nVeggie hot dogs: {veggie_percent:.0f}%\nCurry hot dogs: {curry_percent:.0f}%")
+
+    except ValueError:
+        print("Sorry. Please input a whole number.")
+            
