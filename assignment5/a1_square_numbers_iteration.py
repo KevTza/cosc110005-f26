@@ -25,7 +25,10 @@ to displaying the square number, you will also display the square root of the nu
     An upper and lower bound, both within 1-10,000 - Ask the user for that input
 
 3. List the steps needed in between (PROCESS)
-
+    Create a range using the lower and upper bounds.
+    Square each number in range.
+    If no remainder print number and the square root.
+    Repeat until no numbers remain in range.
 
 4. Write your PLAN as pseudo-code and/or a flowchart
 
