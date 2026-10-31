@@ -49,5 +49,5 @@ print (f"Name: {name}")
 print (f"First name: {name[0:5].capitalize()}")
 
 # try/except - casting/conversion
-try:
+# try:
       
