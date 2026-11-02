@@ -28,8 +28,11 @@ exercises = list()
 assignments = list()
 tests = list()
 x = False
-y = True
-z = True
+y = False
+z = False
+exercises_average = 0
+assignments_average = 0
+tests_average = 0
 
 print("This program will ask you for your marks as percentages for every assessment you have had so far in this class.\n"
       "There are three categories of assessment: Class Exercises, Assignments, and Tests.\n")
@@ -40,23 +43,76 @@ print("Please input your marks for all of your class exercises. Input x to finis
 while x == False:
     try:
         mark = str(input())
-        if mark.isnumeric:
-            exercises.append(mark)
+        if mark.isnumeric() == True:
+            if int(mark) <= 100:
+                exercises.append(mark)
+            elif int(mark) >=100:
+                raise ValueError
         elif mark == "x":
             x = True
-            # break
+        elif mark != "x":
+            raise ValueError
     except ValueError:
-        print("gfdbdf")
+        print("Please input either a valid mark of 100 or less, or x to exit.")
 
-print("done")
 
-'''
 print("Please input your marks for all of your assignments. Input x to finish adding.")
 
-while input != "x":
+while y == False:
+    try:
+        mark = str(input())
+        if mark.isnumeric() == True:
+            if int(mark) <= 100:
+                assignments.append(mark)
+            elif int(mark) >=100:
+                raise ValueError
+        elif mark == "x":
+            y = True
+        elif mark != "x":
+            raise ValueError
+    except ValueError:
+        print("Please input either a valid mark of 100 or less, or x to exit.")
 
 
 print("Please input your marks for all of your tests. Input x to finish adding.")
 
-while input != "x":
-'''
+while z == False:
+    try:
+        mark = str(input())
+        if mark.isnumeric() == True:
+            if int(mark) <= 100:
+                tests.append(mark)
+            elif int(mark) >=100:
+                raise ValueError
+        elif mark == "x":
+            z = True
+        elif mark != "x":
+            raise ValueError
+    except ValueError:
+        print("Please input either a valid mark of 100 or less, or x to exit.")
+
+
+for e_value in exercises:
+    exercises_average += int(e_value)
+exercises_average /= len(exercises)
+
+print(f"Your mark average for your exercises is :{exercises_average}.")
+
+for a_value in assignments:
+    assignments_average += int(a_value)
+assignments_average /= len(assignments)
+
+print(f"Your mark average for your assignments is :{assignments_average}.")
+
+for t_value in tests:
+    tests_average += int(t_value)
+tests_average /= len(tests)
+
+print(f"Your mark average for your tests is :{tests_average}.")
+
+total_average = exercises_average + assignments_average + tests_average
+total_average /= 3
+
+print(f"Your overall average for your class is :{total_average}.")
+
+str(input("Press enter to exit program."))
