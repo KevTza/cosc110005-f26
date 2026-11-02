@@ -17,7 +17,8 @@ Output:
     Display average for each assessment type and average for all assessment types combined.
 
 Steps inbetween:
-
+    Add all entries to each respective list together, then divide by number of entries in that list.
+    Add all averaged list values together and average by number of lists.
 
 Pseudo code or flowchart:
     Please see flowchart.
@@ -96,23 +97,23 @@ for e_value in exercises:
     exercises_average += int(e_value)
 exercises_average /= len(exercises)
 
-print(f"Your mark average for your exercises is :{exercises_average}.")
+print(f"Your mark average for your exercises is :{exercises_average:.2f}.")
 
 for a_value in assignments:
     assignments_average += int(a_value)
 assignments_average /= len(assignments)
 
-print(f"Your mark average for your assignments is :{assignments_average}.")
+print(f"Your mark average for your assignments is :{assignments_average:.2f}.")
 
 for t_value in tests:
     tests_average += int(t_value)
 tests_average /= len(tests)
 
-print(f"Your mark average for your tests is :{tests_average}.")
+print(f"Your mark average for your tests is :{tests_average:.2f}.")
 
 total_average = exercises_average + assignments_average + tests_average
 total_average /= 3
 
-print(f"Your overall average for your class is :{total_average}.")
+print(f"Your overall average for your class is :{total_average:.2f}.")
 
 str(input("Press enter to exit program."))
